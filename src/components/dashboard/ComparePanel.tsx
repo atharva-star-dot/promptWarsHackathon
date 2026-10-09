@@ -92,6 +92,7 @@ export const ComparePanel: React.FC<ComparePanelProps> = ({ places }) => {
           <select
             value={compareItem1}
             onChange={(e) => setCompareItem1(e.target.value)}
+            aria-label="First location to compare"
             className="max-w-[180px] truncate px-3 py-2.5 bg-slate-900 border border-slate-700 rounded-2xl text-xs font-semibold text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             <option value={selectedCity.name}>{selectedCity.name} (Current)</option>
@@ -100,11 +101,12 @@ export const ComparePanel: React.FC<ComparePanelProps> = ({ places }) => {
             ))}
           </select>
 
-          <span className="text-xs font-bold text-slate-500">VS</span>
+          <span className="text-xs font-bold text-slate-500" aria-hidden="true">VS</span>
 
           <select
             value={compareItem2}
             onChange={(e) => setCompareItem2(e.target.value)}
+            aria-label="Second location to compare"
             className="max-w-[180px] truncate px-3 py-2.5 bg-slate-900 border border-slate-700 rounded-2xl text-xs font-semibold text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             {DEMO_CITIES.map((c) => (

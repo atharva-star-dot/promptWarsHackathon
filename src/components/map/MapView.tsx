@@ -91,6 +91,9 @@ export const MapView: React.FC<MapViewProps> = ({
           {(['attraction', 'food', 'hotel', 'heritage', 'safety'] as PlaceCategory[]).map((cat) => (
             <button
               key={cat}
+              type="button"
+              aria-label={`Toggle ${cat} map layer`}
+              aria-pressed={mapFilters[cat]}
               onClick={() => toggleMapFilter(cat)}
               className={`px-2.5 py-1 rounded-xl text-xs font-semibold capitalize transition-all ${
                 mapFilters[cat]
@@ -106,17 +109,21 @@ export const MapView: React.FC<MapViewProps> = ({
         {/* Action Buttons */}
         <div className="pointer-events-auto flex items-center gap-2">
           <button
+            type="button"
+            aria-label="Open report modal to report an issue"
             onClick={() => onOpenReportModal()}
             className="flex items-center gap-1.5 px-3 py-2 bg-amber-500/90 hover:bg-amber-500 text-slate-950 font-bold rounded-2xl text-xs shadow-lg backdrop-blur-md transition-all"
           >
-            <PlusCircle className="w-4 h-4" /> Report Issue
+            <PlusCircle className="w-4 h-4" aria-hidden="true" /> Report Issue
           </button>
           <button
+            type="button"
+            aria-label="Locate me using GPS"
             onClick={handleLocateMe}
             className="p-2.5 bg-slate-800/90 hover:bg-indigo-600 text-white rounded-2xl border border-slate-700 shadow-lg backdrop-blur-md transition-all"
             title="Locate me"
           >
-            <Locate className="w-4.5 h-4.5" />
+            <Locate className="w-4.5 h-4.5" aria-hidden="true" />
           </button>
         </div>
       </div>

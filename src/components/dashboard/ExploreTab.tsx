@@ -79,6 +79,7 @@ export const ExploreTab: React.FC<ExploreTabProps> = ({
           <select
             value={selectedBudget}
             onChange={(e) => setSelectedBudget(e.target.value)}
+            aria-label="Filter places by budget category"
             className="px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             <option value="all">All Budgets</option>

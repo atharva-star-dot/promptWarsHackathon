@@ -20,7 +20,12 @@ export const Header: React.FC = () => {
     <header className="sticky top-0 z-40 w-full glass-panel border-b border-slate-800/80 px-4 py-3 shadow-xl">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Logo */}
-        <div className="flex items-center gap-2.5 shrink-0 cursor-pointer" onClick={() => setActiveTab('overview')}>
+        <button
+          type="button"
+          aria-label="CityPulse Home, go to Overview"
+          className="flex items-center gap-2.5 shrink-0 text-left focus-visible:ring-2 focus-visible:ring-indigo-400 rounded-2xl"
+          onClick={() => setActiveTab('overview')}
+        >
           <div className="p-2.5 bg-gradient-to-tr from-indigo-600 to-cyan-500 text-white rounded-2xl shadow-lg glow-indigo">
             <Activity className="w-5 h-5 animate-pulse" />
           </div>
@@ -32,7 +37,7 @@ export const Header: React.FC = () => {
               Urban Intelligence
             </span>
           </div>
-        </div>
+        </button>
 
         {/* Search Bar */}
         <div className="w-full max-w-xl">
@@ -40,10 +45,15 @@ export const Header: React.FC = () => {
         </div>
 
         {/* Desktop Tabs */}
-        <nav className="hidden lg:flex items-center gap-1 bg-slate-900/80 p-1.5 rounded-2xl border border-slate-800 shrink-0">
+        <nav
+          aria-label="Dashboard navigation tabs"
+          className="hidden lg:flex items-center gap-1 bg-slate-900/80 p-1.5 rounded-2xl border border-slate-800 shrink-0"
+        >
           {tabs.map((tab) => (
             <button
               key={tab.id}
+              type="button"
+              aria-current={activeTab === tab.id ? 'page' : undefined}
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
                 activeTab === tab.id

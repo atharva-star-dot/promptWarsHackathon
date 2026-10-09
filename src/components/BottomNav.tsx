@@ -16,11 +16,17 @@ export const BottomNav: React.FC = () => {
   ];
 
   return (
-    <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 glass-panel border-t border-slate-800/80 px-2 py-2 shadow-2xl">
+    <nav
+      aria-label="Mobile navigation"
+      className="lg:hidden fixed bottom-0 left-0 right-0 z-50 glass-panel border-t border-slate-800/80 px-2 py-2 shadow-2xl"
+    >
       <div className="flex items-center justify-around">
         {tabs.map((tab) => (
           <button
             key={tab.id}
+            type="button"
+            aria-label={`${tab.label} tab`}
+            aria-current={activeTab === tab.id ? 'page' : undefined}
             onClick={() => setActiveTab(tab.id)}
             className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[10px] font-bold transition-all ${
               activeTab === tab.id
@@ -33,6 +39,6 @@ export const BottomNav: React.FC = () => {
           </button>
         ))}
       </div>
-    </div>
+    </nav>
   );
 };

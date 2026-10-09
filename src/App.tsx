@@ -45,10 +45,15 @@ export const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#0B0F17] text-slate-100 flex flex-col pb-20 lg:pb-8">
+      {/* Skip to Main Content Link for Keyboard Accessibility (WCAG 2.1 AA) */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
       {/* Sticky Header */}
       <Header />
 
-      <main className="max-w-7xl mx-auto px-4 py-6 w-full space-y-8 flex-1">
+      <main id="main-content" className="max-w-7xl mx-auto px-4 py-6 w-full space-y-8 flex-1">
         {/* 3D Hero Animation */}
         <Suspense fallback={<div className="h-48 bg-slate-900/40 rounded-3xl animate-pulse"></div>}>
           <Hero3D />

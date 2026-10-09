@@ -78,10 +78,12 @@ export const SafetyPanel: React.FC<SafetyPanelProps> = ({ places, onOpenReportMo
             </div>
 
             <button
+              type="button"
+              aria-label="Report hazard or incident in this city"
               onClick={onOpenReportModal}
               className="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl text-xs flex items-center gap-1.5 shadow-lg transition-all"
             >
-              <PlusCircle className="w-4 h-4" /> Report Hazard / Incident
+              <PlusCircle className="w-4 h-4" aria-hidden="true" /> Report Hazard / Incident
             </button>
           </div>
         </div>

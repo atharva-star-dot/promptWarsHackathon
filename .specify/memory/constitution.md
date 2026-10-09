@@ -1,19 +1,15 @@
 <!--
 ### Sync Impact Report
-- Version change: 1.0.0 -> 2.0.0
+- Version change: 2.0.0 -> 3.0.0
 - List of modified principles:
-  - Principle 1: Ship-first (Added)
-  - Principle 2: Frontend-only Architecture (Added)
-  - Principle 3: Free, Key-less Public APIs Only (Added)
-  - Principle 4: Honest & Labeled Data (Added)
-  - Principle 5: Component Resilience (Added)
-  - Principle 6: High Design Quality & Glassmorphism Theme (Added)
-  - Principle 7: Performance & Caching (Added)
-  - Principle 8: Code Quality & Component Architecture (Added)
+  - Principle 8: Code Quality & Clean Architecture (Updated with testing, zero secrets, sanitized input, documented README)
+- Added principles:
+  - Principle 9: Automated Testing & High Core Coverage (Added)
+  - Principle 10: Rigorous WCAG 2.1 AA Accessibility (Added)
+  - Principle 11: Scope Control & Strict Hardening (Added)
 - Added sections:
-  - Technical Constraints
-  - Quality & Governance
-- Follow-up TODOs: None
+  - Non-Negotiable Quality Principles
+- Follow-up TODOs: Implement automated test suite (>80% core logic coverage) and full WCAG 2.1 AA accessibility hardening.
 -->
 
 # CityPulse Constitution
@@ -44,11 +40,29 @@ Dark, modern glassmorphism UI featuring smooth Framer Motion animations. Fully r
 ### 7. Performance & Optimization
 Lazy-load heavy assets including 3D scenes and interactive maps. Cache API responses in `sessionStorage` and debounce search inputs to respect API rate limits.
 
-### 8. Code Quality & Clean Architecture
-Modular, strongly-typed components. One data-fetching hook per data source. Zero secrets, tokens, or private keys in source code.
+### 8. Code Quality, Security & Documentation
+Modular, strongly-typed components. Zero hardcoded secrets, tokens, or private keys in source code. All inputs sanitized and validated. No unused dead code. Clear and comprehensive README documenting setup, run, test, and verification commands.
+
+## Non-Negotiable Quality Principles
+
+### 9. Automated Testing & High Core Coverage
+Every module containing business logic, heuristic computation, or scoring must have automated unit tests.
+- Minimum **80% code coverage** across core logic modules (`scoring.ts`, `nlpEngine.ts`, `apiCache.ts`, `useCityStore.ts`).
+- Must thoroughly cover happy paths, edge cases (empty collections, null/undefined properties, negative/oversized numbers, malformed inputs), and error resilience.
+- The entire test suite must execute cleanly via a single standard command (`npm test`) and pass with exit code 0 before any task is marked complete.
+
+### 10. Rigorous Accessibility (WCAG 2.1 AA)
+The UI must meet WCAG 2.1 AA standards across all viewports and interaction modes:
+- **Semantic HTML first**: Use proper semantic HTML elements (`<header>`, `<main>`, `<nav>`, `<section>`, `<article>`, `<button>`, `<label>`), reserving ARIA attributes for cases where native semantics are insufficient.
+- **Keyboard Navigation**: All interactive elements (search, filters, city chips, modals, buttons, forms) must be fully navigable and operable via standard keyboard interactions (`Tab`, `Shift+Tab`, `Enter`, `Escape`), featuring distinct, high-contrast focus rings (`focus-visible`).
+- **Accessible Names & ARIA**: Form inputs must have programmatically associated `<label>` or `aria-label`/`aria-labelledby`. Dynamic status changes and errors must announce via `aria-live` or appropriate role alerts.
+- **Visual Contrast & Zoom**: Text and icon controls must maintain a minimum 4.5:1 contrast ratio against dark background layers. Layouts must adapt cleanly without clipping or broken flow at 200% zoom and across standard viewport widths (360px to 1440px+).
+
+### 11. Strict Scope Control & Hardening Pass
+Do not add arbitrary external features, change defined behaviors, or introduce heavy infrastructure (no Docker, no AWS, no database servers). All efforts in this pass focus strictly on testing, reliability, security, accessibility, and documentation hardening.
 
 ## Governance
 
 This constitution supersedes all other architectural decisions for the CityPulse project. Amendments require documentation and semantic version bumps.
 
-**Version**: 2.0.0 | **Ratified**: 2026-10-09 | **Last Amended**: 2026-10-09
+**Version**: 3.0.0 | **Ratified**: 2026-10-09 | **Last Amended**: 2026-10-09
