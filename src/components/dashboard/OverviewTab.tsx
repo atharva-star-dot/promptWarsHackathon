@@ -43,35 +43,35 @@ export const OverviewTab: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-3 gap-3 mt-6 pt-4 border-t border-slate-800">
-            <div className="flex items-center gap-2">
-              <div className="p-2 bg-indigo-500/20 text-indigo-400 rounded-xl">
+            <div className="flex items-center gap-2 min-w-0">
+              <div className="p-2 bg-indigo-500/20 text-indigo-400 rounded-xl shrink-0">
                 <Users className="w-4 h-4" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <div className="text-[10px] text-slate-400 uppercase font-semibold">Population</div>
-                <div className="text-sm font-bold text-slate-100">
+                <div className="text-sm font-bold text-slate-100 truncate">
                   {selectedCity.population ? `${(selectedCity.population / 1000000).toFixed(1)}M` : 'N/A'}
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
-              <div className="p-2 bg-purple-500/20 text-purple-400 rounded-xl">
+            <div className="flex items-center gap-2 min-w-0">
+              <div className="p-2 bg-purple-500/20 text-purple-400 rounded-xl shrink-0">
                 <Clock className="w-4 h-4" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <div className="text-[10px] text-slate-400 uppercase font-semibold">Local Time</div>
-                <div className="text-sm font-bold text-slate-100">{getLocalTime()}</div>
+                <div className="text-sm font-bold text-slate-100 truncate">{getLocalTime()}</div>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
-              <div className="p-2 bg-cyan-500/20 text-cyan-400 rounded-xl">
+            <div className="flex items-center gap-2 min-w-0">
+              <div className="p-2 bg-cyan-500/20 text-cyan-400 rounded-xl shrink-0">
                 <MapPin className="w-4 h-4" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <div className="text-[10px] text-slate-400 uppercase font-semibold">Coords</div>
-                <div className="text-xs font-bold text-slate-100">
+                <div className="text-xs font-bold text-slate-100 truncate">
                   {selectedCity.latitude.toFixed(2)}°, {selectedCity.longitude.toFixed(2)}°
                 </div>
               </div>

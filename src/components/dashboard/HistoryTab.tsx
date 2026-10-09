@@ -94,7 +94,7 @@ export const HistoryTab: React.FC<HistoryTabProps> = ({
                   <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                     {place.subCategory}
                   </span>
-                  <h4 className="text-base font-bold text-white mt-2">{place.name}</h4>
+                  <h4 className="text-base font-bold text-white mt-2 truncate">{place.name}</h4>
                   <p className="text-xs text-slate-400 mt-1">
                     {place.distance} km from city center
                   </p>

@@ -63,14 +63,14 @@ export const InsightsPanel: React.FC<InsightsPanelProps> = ({ weather, places })
                     : 'bg-indigo-500/10 border-indigo-500/30 text-indigo-200'
                 }`}
               >
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider opacity-80">
+                <div className="flex items-center justify-between mb-1 gap-2">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider opacity-80 min-w-0 truncate">
                     {insight.category}
                   </span>
                   {insight.severity === 'warning' ? (
-                    <AlertTriangle className="w-4 h-4 text-rose-400" />
+                    <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0" />
                   ) : (
-                    <CheckCircle className="w-4 h-4 text-emerald-400" />
+                    <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
                   )}
                 </div>
                 <div className="text-sm font-bold text-white mb-1">{insight.title}</div>
@@ -101,7 +101,7 @@ export const InsightsPanel: React.FC<InsightsPanelProps> = ({ weather, places })
                       <stop offset="95%" stopColor="#F59E0B" stopOpacity={0} />
                     </linearGradient>
                   </defs>
-                  <XAxis dataKey="hour" stroke="#94a3b8" tick={{ fill: '#cbd5e1', fontSize: 11 }} />
+                  <XAxis dataKey="hour" stroke="#94a3b8" tick={{ fill: '#cbd5e1', fontSize: 11 }} interval="preserveStartEnd" />
                   <YAxis stroke="#475569" domain={[0, 100]} tick={{ fill: '#cbd5e1', fontSize: 11 }} />
                   <Tooltip contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '12px' }} />
                   <Area type="monotone" dataKey="congestion" stroke="#F59E0B" strokeWidth={3} fillOpacity={1} fill="url(#colorCongestion)" />
@@ -110,7 +110,7 @@ export const InsightsPanel: React.FC<InsightsPanelProps> = ({ weather, places })
             </div>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400 flex justify-between">
+          <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400 flex flex-wrap justify-between gap-2">
             <span>Peak Rush Hour: 09:00 AM & 06:00 PM</span>
             <span className="text-amber-400 font-semibold">Typical Day Curve</span>
           </div>

@@ -75,7 +75,7 @@ export const ExploreTab: React.FC<ExploreTabProps> = ({
         </div>
 
         {/* Budget & Open Now Filters */}
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <select
             value={selectedBudget}
             onChange={(e) => setSelectedBudget(e.target.value)}
@@ -149,7 +149,7 @@ export const ExploreTab: React.FC<ExploreTabProps> = ({
                 )}
               </div>
 
-              <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
+              <div className="mt-4 pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-1.5 text-[11px] text-emerald-400">
                   <CheckCircle2 className="w-3.5 h-3.5" /> Verified Location
                 </div>

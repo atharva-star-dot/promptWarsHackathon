@@ -98,16 +98,18 @@ export const SafetyPanel: React.FC<SafetyPanelProps> = ({ places, onOpenReportMo
             {safePoints.map((point) => (
               <div
                 key={point.id}
-                className="glass-card p-5 rounded-3xl border border-slate-700/60 hover:border-blue-500/60 transition-all flex justify-between items-center"
+                className="glass-card p-5 rounded-3xl border border-slate-700/60 hover:border-blue-500/60 transition-all flex justify-between items-center gap-3"
               >
-                <div>
+                {/* Fix 7: min-w-0 so text can shrink; truncate long names */}
+                <div className="min-w-0">
                   <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-500/20 text-blue-300 border border-blue-500/30">
                     {point.subCategory}
                   </span>
-                  <h4 className="text-base font-bold text-white mt-1.5">{point.name}</h4>
+                  <h4 className="text-base font-bold text-white mt-1.5 truncate">{point.name}</h4>
                   <div className="text-xs text-slate-400 mt-1">{point.distance} km from center</div>
                 </div>
-                <div className="p-3 bg-slate-800 rounded-2xl text-blue-400">
+                {/* Fix 7: shrink-0 so icon box never collapses */}
+                <div className="shrink-0 p-3 bg-slate-800 rounded-2xl text-blue-400">
                   {point.subCategory.toLowerCase().includes('police') ? '👮' : '🏥'}
                 </div>
               </div>
