@@ -1,50 +1,54 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+### Sync Impact Report
+- Version change: 1.0.0 -> 2.0.0
+- List of modified principles:
+  - Principle 1: Ship-first (Added)
+  - Principle 2: Frontend-only Architecture (Added)
+  - Principle 3: Free, Key-less Public APIs Only (Added)
+  - Principle 4: Honest & Labeled Data (Added)
+  - Principle 5: Component Resilience (Added)
+  - Principle 6: High Design Quality & Glassmorphism Theme (Added)
+  - Principle 7: Performance & Caching (Added)
+  - Principle 8: Code Quality & Component Architecture (Added)
+- Added sections:
+  - Technical Constraints
+  - Quality & Governance
+- Follow-up TODOs: None
+-->
+
+# CityPulse Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### 1. Ship-First
+A deployed, working live web application beats extra incomplete features. Always cut scope before cutting quality.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### 2. Frontend-Only Architecture
+Built with Vite + React + TypeScript, Tailwind CSS, Framer Motion, React Three Fiber, and Leaflet. Strict frontend-only execution: no backend server, no Docker, no AWS. Deployed directly to Vercel.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### 3. Free, Key-less Public APIs Only
+Rely exclusively on free, publicly available APIs that require no API keys:
+- Open-Meteo (Geocoding & Weather)
+- OpenStreetMap Overpass API (Points of interest & Safety proxies)
+- Wikipedia REST API (History, Culture & Media)
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### 4. Honest Data & Transparent Labelling
+All heuristic, estimated, or simulated data must be visibly labelled ("Estimated" / "Demo data"). Never present fake or mock data as verified facts.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### 5. Component & Data Resilience
+Every data-driven component must handle all lifecycle states gracefully (loading skeleton, error state, empty state). Failure of any single API must never break the page or block other components from rendering.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### 6. Design Quality & Glassmorphism Theme
+Dark, modern glassmorphism UI featuring smooth Framer Motion animations. Fully responsive (mobile-first, 360px to 1440px+), accessible (color contrast, keyboard navigation, aria-labels, and respecting `prefers-reduced-motion`).
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### 7. Performance & Optimization
+Lazy-load heavy assets including 3D scenes and interactive maps. Cache API responses in `sessionStorage` and debounce search inputs to respect API rate limits.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### 8. Code Quality & Clean Architecture
+Modular, strongly-typed components. One data-fetching hook per data source. Zero secrets, tokens, or private keys in source code.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other architectural decisions for the CityPulse project. Amendments require documentation and semantic version bumps.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 2.0.0 | **Ratified**: 2026-10-09 | **Last Amended**: 2026-10-09
